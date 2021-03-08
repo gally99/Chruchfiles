@@ -13,10 +13,8 @@ $Drivelist = @(
 )
 
 Invoke-Parallel -InputObject $Drivelist -ScriptBlock {
-
+  Write-verbose "Copying files to $_" -Verbose
    Copy-Item C:\ChrurchFiles $_ -Recurse
-  Write-verbose "$_" -Verbose
-
 } -Throttle 1000
 
 
